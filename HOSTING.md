@@ -16,13 +16,21 @@ Buffer attaches images by **public URL**, and Instagram can't post text-only. Th
 A carousel uses slides **01–05** (`drop-hero → decoded → decoded → console → cta`). Captions live in
 each drop's `ledger/<run-slug>.md`.
 
-| Drop | Run slug | Carousel PNGs hosted? | IG scheduled? |
-|---|---|---|---|
-| intro (pinned) | `profile-intro` (slide 01–02) | ✅ | ✅ 2026-06-26 12:00 BST |
-| #006 palette | `2026-06-23-palette-from-a-word` | ✅ | ⬜ ready |
-| #007 contrast-lab | `2026-06-24-contrast-lab` | ✅ | ⬜ ready |
-| #008 half-life | `2026-06-25-half-life-of-a-fact` | ✅ | ⬜ ready |
-| #001–#005 | — | ❌ not rendered yet | ⬜ Threads text only so far |
+| Drop | Run slug | Carousel hosted? | On Threads? | IG scheduled? |
+|---|---|---|---|---|
+| intro (pinned) | `profile-intro` (01–02) | ✅ | ✅ 2 imgs | ✅ 2026-06-26 12:00 |
+| #001 planet-nine | `2026-06-19-planet-nine` | ✅ | ✅ 4 imgs | ⬜ ready |
+| #002 speed-of-light | `2026-06-20-speed-of-light-latency` | ✅ | ✅ 4 imgs | ⬜ ready |
+| #003 today's-sky | `2026-06-21-todays-sky` | ✅ | ✅ 4 imgs | ⬜ ready |
+| #004 signal | `2026-06-22-signal` | ✅ | ✅ 4 imgs | ⬜ ready |
+| #005 slingshot | `2026-06-23-slingshot` | ✅ | ✅ 4 imgs | ⬜ ready |
+| #006 palette | `2026-06-23-palette-from-a-word` | ✅ | ✅ 4 imgs | ⬜ ready |
+| #007 contrast-lab | `2026-06-24-contrast-lab` | ✅ | ✅ 4 imgs | ⬜ ready |
+| #008 half-life | `2026-06-25-half-life-of-a-fact` | ✅ | ✅ 4 imgs | ⬜ ready |
+
+**Threads carousels** = slides 01–04 (hero → decoded → decoded → console); the CTA card (05, carries the
+link) is held off Threads post 1 per brand law — the link rides the last thread item instead. **IG carousels**
+use slides 01–05. All slides are hosted and re-renderable from `renderer/decks/<run>.json`.
 
 **Slot budget:** Buffer free plan = 10 scheduled posts in the queue at once (rolling — frees as posts
 publish). Currently 10/10 (9 Threads backfill + the intro IG carousel). Schedule more IG carousels as
