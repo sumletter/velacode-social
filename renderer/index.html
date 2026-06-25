@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>velacode social renderer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fraunces (display) · Newsreader (body) · Space Mono (machine voice) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="slide.css" />
+</head>
+<body>
+  <div class="stage" id="stage"></div>
+
+  <script>
+    // ---- tiny seeded RNG so a slug always renders the same starfield -----
+    function fnv1a(str) { let h = 0x811c9dc5; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193); } return h >>> 0; }
+    function mulberry32(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+    const KIND = { research: "var(--ice)", game: "var(--ember)", app: "var(--warn)" };
+    const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    function starfield(seed, w, h, dense) {
+      const rng = mulberry32(fnv1a(seed));
+      const n = dense ? 150 : 80;
+      let out = "";
+      for (let i = 0; i < n; i++) {
+        const x = rng() * w, y = rng() * h;
+        // brighter, denser near the top (the wash zone)
+        const top = 1 - y / h;
+        const r = rng() < 0.12 ? 2.4 : rng() < 0.4 ? 1.5 : 1;
+        const op = (0.18 + rng() * 0.5) * (0.5 + top * 0.7);
+        out += `<i style="left:${x.toFixed(1)}px;top:${y.toFixed(1)}px;width:${r}px;height:${r}px;opacity:${op.toFixed(2)}"></i>`;
+      }
+      return out;
+    }
+
+    function statusbar(d) {
+      return `<div class="statusbar">
+        <span><span class="dot"></span><span class="wm">velacode</span></span>
+        <span class="right">vela · autonomous</span>
+      </div>`;
+    }
+
+    // ---- templates -------------------------------------------------------
+    const T = {
+      "drop-hero"(s, d) {
+        const sw = (s.swatches || []).map((c) => `<i style="background:${c}"></i>`).join("");
+        const title = (s.title || []).map((ln, i) =>
+          i === s.accentLine ? `<span class="amber">${esc(ln)}</span>` : esc(ln)).join("<br/>");
+        return `${statusbar(d)}
+          <div class="eyebrow" style="margin-top:64px">${esc(s.eyebrow)}</div>
+          <span class="chip" style="margin-top:28px">${esc(s.kindLabel || d.kind)}</span>
+          <h1 class="display" style="margin-top:24px">${title}</h1>
+          <p class="dek">${esc(s.dek)}</p>
+          ${sw ? `<div class="swatches">${sw}</div>
+          <div class="swatch-cap">example output for the word <b>${esc(s.swatchWord || "")}</b></div>` : ""}
+          <div class="spacer"></div>
+          <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer)}</span></div>`;
+      },
+      "decoded"(s, d) {
+        const stmt = (s.statement || []).map((ln, i) =>
+          i === s.hl ? `<span class="hl">${esc(ln)}</span>` : esc(ln)).join("<br/>");
+        const body = esc(s.body).replace(/\*([^*]+)\*/g, "<em>$1</em>");
+        return `${statusbar(d)}
+          <div class="eyebrow" style="margin-top:64px">${esc(s.eyebrow)}</div>
+          <div class="spacer"></div>
+          <div class="stmt display">${stmt}</div>
+          <p class="body">${body}</p>
+          <div class="spacer"></div>
+          <div class="foot"><span class="p">&gt;</span><span>decoded · drop #${String(d.number).padStart(3, "0")}</span></div>`;
+      },
+      "console"(s, d) {
+        const lines = (s.lines || []).map((l) => {
+          if (l.ok) return `<div class="line ok"><span class="ck">✓</span>${esc(l.ok)}</div>`;
+          if (l.sub) return `<div class="line sub"><span class="ar">↳</span>${esc(l.sub)}</div>`;
+          return `<div class="line"><span class="p">&gt;</span><span class="call">${esc(l.call)}</span>${l.caret ? '<span class="caret"></span>' : ""}</div>`;
+        }).join("");
+        return `${statusbar(d)}
+          <div class="eyebrow" style="margin-top:64px">${esc(s.eyebrow || "the machine's notes")}</div>
+          <div class="console-wrap"><div class="console scan">
+            <div class="ttl">${esc(s.title || "vela@velacode — build log")}</div>
+            ${lines}
+          </div></div>
+          <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "no human in the editorial loop")}</span></div>`;
+      },
+      "stat"(s, d) {
+        const cells = (s.cells || []).map((c) =>
+          `<div class="cell"><div class="num ${c.zero ? "z" : ""}">${esc(c.value)}</div><div class="lbl">${esc(c.label)}</div></div>`).join("");
+        return `${statusbar(d)}
+          <div class="eyebrow" style="margin-top:64px">${esc(s.eyebrow || "the experiment, in numbers")}</div>
+          <div class="grid">${cells}</div>
+          <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "velacode.xyz · live counters")}</span></div>`;
+      },
+      "cta"(s, d) {
+        const big = esc(s.big || "see what\nthe machine\nmade.").replace(/\n/g, "<br/>").replace(/\*([^*]+)\*/g, '<span class="amber">$1</span>');
+        return `${statusbar(d)}
+          <div class="spacer"></div>
+          <div class="eyebrow">${esc(s.eyebrow || "> open()")}</div>
+          <div class="big display" style="margin-top:24px">${big}</div>
+          <div class="link">${esc(s.link || d.url)}</div>
+          ${s.sub ? `<p class="sub">${esc(s.sub)}</p>` : ""}
+          <div class="spacer"></div>
+          <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "follow @velacode — it ships on a schedule")}</span></div>`;
+      },
+      "thread"(s, d) {
+        const q = esc(s.quote).replace(/\n/g, "<br/>").replace(/\*([^*]+)\*/g, '<span class="amber">$1</span>');
+        return `${statusbar(d)}
+          <div class="spacer"></div>
+          <div class="quote display">${q}</div>
+          <div class="byline">${esc(s.byline || "— vela, the agent that runs velacode.xyz")}</div>
+          <div class="spacer"></div>
+          <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "drop #" + String(d.number).padStart(3, "0") + " · autonomous")}</span></div>`;
+      },
+    };
+
+    async function main() {
+      const params = new URLSearchParams(location.search);
+      const data = await (await fetch("slides.json")).json();
+      const d = data.drop || {};
+      const only = params.get("only");
+      const stage = document.getElementById("stage");
+
+      data.slides.forEach((s) => {
+        if (only && String(s.n) !== String(only)) return;
+        const sizeClass = s.size === "1:1" ? "s1x1" : s.size === "9:16" ? "s9x16" : "s4x5";
+        const dims = sizeClass === "s1x1" ? [1080, 1080] : sizeClass === "s9x16" ? [1080, 1920] : [1080, 1350];
+        const kindColor = KIND[s.kind || d.kind] || "var(--ice)";
+        const el = document.createElement("div");
+        el.className = `slide ${sizeClass}`;
+        el.id = `slide-${s.n}`;
+        el.style.setProperty("--kind", kindColor);
+        if (s.wash) el.setAttribute("data-wash", "true");
+        el.innerHTML =
+          `<div class="stars">${starfield(data.slug + s.n, dims[0], dims[1], !!s.wash)}</div>` +
+          `<div class="chrome"></div>` +
+          `<div class="content ${s.template}">${(T[s.template] || T["decoded"])(s, d)}</div>`;
+        stage.appendChild(el);
+      });
+
+      await document.fonts.ready;
+      document.documentElement.setAttribute("data-ready", "1");
+    }
+    main();
+  </script>
+</body>
+</html>
