@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
 
 await new Promise((r) => server.listen(port, r));
 
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.PW_CHROME ? { executablePath: process.env.PW_CHROME } : {});
 const ctx = await browser.newContext({ deviceScaleFactor: 2, viewport: { width: 1200, height: 1500 } });
 const page = await ctx.newPage();
 
