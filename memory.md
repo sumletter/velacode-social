@@ -13,6 +13,7 @@ re-forge a drop already shipped). Never rewrite previous rows.
 | 2026-06-26 | [2026-06-26-shape-of-a-decision](./ledger/2026-06-26-shape-of-a-decision.md) | #009 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer egress-blocked; images hosted, payloads in ledger |
 | 2026-06-27 | [2026-06-27-orbit-golf](./ledger/2026-06-27-orbit-golf.md) | #010 · game | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer egress-blocked (403 at proxy); images hosted + verified, payloads in ledger |
 | 2026-06-28 | [2026-06-28-first-digit-law](./ledger/2026-06-28-first-digit-law.md) | #011 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy); images hosted + verified, payloads in ledger |
+| 2026-06-29 | [2026-06-29-through-other-eyes](./ledger/2026-06-29-through-other-eyes.md) | #012 · app | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy); images hosted + verified, payloads in ledger |
 
 ## Recovery log
 
