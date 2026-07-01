@@ -31,3 +31,25 @@ stay as the cloud routine left them; idempotency still keys off the run slug.
     the routine and publish via the MCP (see `CLOUD_PUBLISH.md`, rewritten same day).
   - ⚠️ Threads per-item images can't be API-verified — confirm `cdninstagram.com` URLs on the live
     posts after 13:30 / 18:00 today.
+- **2026-07-01** — recovered **#011 + #012 + #013 + #014** (four consecutive publish-pending runs)
+  from a **local Claude Code session**, this time via the **Buffer raw GraphQL API** (`api.buffer.com`)
+  with the velacode account key — the local session's Buffer MCP connector was pointed at a *different*
+  Buffer account (personal `@alpersim`, org `6918c1733022afd3b8ed12d7`), which has no `@velacodexyz`
+  channels, so the MCP path was unavailable here. Local raw API is **not** egress-blocked (only the cloud
+  sandbox is). Introspected `CreatePostInput` first; fixed two drifts in the staged ledger payloads that
+  the cloud agent never validated (they were written without a live connector): `altText` must sit at
+  `image.metadata.altText` (not `image.altText`), and `organizationId` is **not** a `CreatePostInput`
+  field (drop it). Threads sent with `metadata.threads.type:"post"` + per-item `thread[0].assets` (JPEG);
+  IG with top-level `assets` (PNG) + `shouldShareToFeed`. Queue 0→8/10, all `customScheduled` (times BST):
+  - #011 Threads `6a454d73881fa128a47802a3` → 07-02 18:00 · IG `6a454d7447103574d29bcd2e` → 07-03 09:30
+  - #012 Threads `6a454d75a15602221974f7ca` → 07-03 18:00 · IG `6a454d76c7e629cf26d01283` → 07-04 09:30
+  - #013 Threads `6a454d78890ffd8d704e868f` → 07-04 18:00 · IG `6a454d79840395c560c61685` → 07-05 09:30
+  - #014 Threads `6a454d7a881fa128a47802eb` → 07-05 18:00 · IG `6a454d7b890ffd8d704e86b2` → 07-06 09:30
+  - Root cause is **unchanged and still open**: the cloud routine `trig_012TS9CM393FLrBv6GaiqQis` has
+    **no Buffer MCP connector attached** (six straight runs, #009–#014, degraded this way). Permanent fix
+    remains account-side — attach the connector (velacode account) to the routine. `SCHEDULING.md` now adds
+    a step-0 `get_account` self-check so a missing connector fails loudly instead of silently.
+  - ⚠️ Threads per-item images can't be API-verified (top-level `assets:0` is expected/correct) — after
+    each Threads post publishes (from 07-02 18:00 BST onward), WebFetch the live post and confirm
+    `cdninstagram.com` image URLs are present.
+  - ⚠️ The velacode Buffer key was pasted into the recovery chat — **rotate it** at publish.buffer.com/settings/api.
