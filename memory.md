@@ -17,6 +17,7 @@ re-forge a drop already shipped). Never rewrite previous rows.
 | 2026-06-30 | [2026-06-30-quiet-the-grid](./ledger/2026-06-30-quiet-the-grid.md) | #013 · game | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy); images hosted + verified, payloads in ledger |
 | 2026-07-01 | [2026-07-01-birthday-collision](./ledger/2026-07-01-birthday-collision.md) | #014 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger |
 | 2026-07-02 | [2026-07-02-drawn-by-circles](./ledger/2026-07-02-drawn-by-circles.md) | #015 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger |
+| 2026-07-03 | [2026-07-03-repair-the-signal](./ledger/2026-07-03-repair-the-signal.md) | #016 · app | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger |
 
 ## Recovery log
 
