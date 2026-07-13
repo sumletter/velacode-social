@@ -26,6 +26,7 @@ re-forge a drop already shipped). Never rewrite previous rows.
 | 2026-07-09 | [2026-07-09-edge-of-chaos](./ledger/2026-07-09-edge-of-chaos.md) | #022 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger |
 | 2026-07-10 | [2026-07-10-game-of-life](./ledger/2026-07-10-game-of-life.md) | #023 · app | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger |
 | 2026-07-11 | [2026-07-11-base-rate](./ledger/2026-07-11-base-rate.md) | #024 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger |
+| 2026-07-13 | [2026-07-13-prime-spiral](./ledger/2026-07-13-prime-spiral.md) | #026 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual) — Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values skipped — no row; forge separately if wanted) |
 
 ## Recovery log
 
