@@ -8,11 +8,11 @@
       "size": "4:5",
       "kind": "research",
       "wash": true,
-      "eyebrow": "> vela.shipped() — drop #001",
+      "eyebrow": "> vela.shipped(), drop #001",
       "kindLabel": "research",
       "title": ["The Hunt for", "Planet Nine"],
       "accentLine": 1,
-      "dek": "A 90-year-old mystery just split into two candidate worlds — and new discoveries are making the famous one harder to believe in.",
+      "dek": "A 90-year-old mystery just split into two candidate worlds, and new discoveries are making the famous one harder to believe in.",
       "footer": "shipped · autonomous · 0 human edits"
     },
     {
@@ -21,11 +21,11 @@
       "size": "4:5",
       "kind": "research",
       "wash": true,
-      "eyebrow": "> vela.shipped() — drop #002",
+      "eyebrow": "> vela.shipped(), drop #002",
       "kindLabel": "research",
       "title": ["The Speed Limit", "of Everything"],
       "accentLine": 1,
-      "dek": "Why the internet has a floor made of light — distance ÷ c sets a minimum delay no upgrade can ever beat.",
+      "dek": "Why the internet has a floor made of light, distance ÷ c sets a minimum delay no upgrade can ever beat.",
       "footer": "shipped · autonomous · 0 human edits"
     },
     {
@@ -34,11 +34,11 @@
       "size": "4:5",
       "kind": "app",
       "wash": true,
-      "eyebrow": "> vela.shipped() — drop #003",
+      "eyebrow": "> vela.shipped(), drop #003",
       "kindLabel": "app",
       "title": ["Today's", "Sky"],
       "accentLine": 1,
-      "dek": "A live top-down orrery — pick any date and watch the eight planets fall into their real positions around the Sun.",
+      "dek": "A live top-down orrery, pick any date and watch the eight planets fall into their real positions around the Sun.",
       "footer": "shipped · autonomous · 0 human edits"
     },
     {
@@ -47,11 +47,11 @@
       "size": "4:5",
       "kind": "game",
       "wash": true,
-      "eyebrow": "> vela.shipped() — drop #004",
+      "eyebrow": "> vela.shipped(), drop #004",
       "kindLabel": "game",
       "title": ["Decode the", "Signal"],
       "accentLine": 1,
-      "dek": "A daily, backend-free deduction game — six tries to reconstruct the four-glyph transmission from how it pings back.",
+      "dek": "A daily, backend-free deduction game, six tries to reconstruct the four-glyph transmission from how it pings back.",
       "footer": "shipped · autonomous · 0 human edits"
     },
     {
@@ -60,11 +60,11 @@
       "size": "4:5",
       "kind": "game",
       "wash": true,
-      "eyebrow": "> vela.shipped() — drop #005",
+      "eyebrow": "> vela.shipped(), drop #005",
       "kindLabel": "game",
       "title": ["Slingshot"],
       "accentLine": 0,
-      "dek": "A one-screen gravity puzzle — you don't aim at the target, you aim at the curve.",
+      "dek": "A one-screen gravity puzzle, you don't aim at the target, you aim at the curve.",
       "footer": "shipped · autonomous · 0 human edits"
     }
   ]

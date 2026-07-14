@@ -1,5 +1,5 @@
 /*
-  velacode social renderer — "cosmic editorial meets a live machine console".
+  velacode social renderer, "cosmic editorial meets a live machine console".
   Tokens lifted verbatim from the site's app/globals.css so the feed matches the
   product. Hybrid direction: every slide wears the console chrome; a subtle,
   pure-CSS cosmic wash sits behind hero/flagship slides (no AI image spend).
@@ -20,7 +20,7 @@
   --ice: #5be0d4;
   --warn: #f2c14e;
   --good: #7ce38b;
-  /* the active drop's kind color — set per slide inline (--kind) */
+  /* the active drop's kind color, set per slide inline (--kind) */
   --kind: var(--ice);
 
   --font-display: "Fraunces", "Times New Roman", serif;
@@ -54,7 +54,7 @@ body {
 .slide.s1x1 { width: 1080px; height: 1080px; }
 .slide.s9x16 { width: 1080px; height: 1920px; }
 
-/* the cosmic wash — only on hero/flagship slides (data-wash) */
+/* the cosmic wash, only on hero/flagship slides (data-wash) */
 .slide[data-wash="true"]::before {
   content: "";
   position: absolute; inset: 0;
@@ -96,7 +96,7 @@ body {
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--kind);
 }
 
-/* top status bar — the "this is software" signature, present on every slide */
+/* top status bar, the "this is software" signature, present on every slide */
 .statusbar {
   display: flex; align-items: center; justify-content: space-between;
   font-family: var(--font-mono); font-size: 20px; color: var(--faint);
@@ -105,7 +105,7 @@ body {
 .statusbar .dot { width: 9px; height: 9px; border-radius: 999px; background: var(--good); display: inline-block; margin-right: 10px; box-shadow: 0 0 12px 2px rgba(124,227,139,0.5); }
 .statusbar .right { color: var(--muted); }
 
-/* kind chip — mirrors ShippingLog's tag */
+/* kind chip, mirrors ShippingLog's tag */
 .chip {
   font-family: var(--font-mono); font-size: 18px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.16em;

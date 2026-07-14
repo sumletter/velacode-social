@@ -1,4 +1,4 @@
-// velacode social renderer — HTML/CSS -> PNG at 2x.
+// velacode social renderer, HTML/CSS -> PNG at 2x.
 // Usage: node render.mjs --slug=<run-slug> [--out=<dir>] [--port=4322]
 // Reads slides.json, serves the renderer over http (so fetch() works), and
 // screenshots each #slide-N element at deviceScaleFactor:2 (1080x1350 -> 2160x2700).

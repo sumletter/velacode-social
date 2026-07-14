@@ -79,7 +79,7 @@
         return `${statusbar(d)}
           <div class="eyebrow" style="margin-top:64px">${esc(s.eyebrow || "the machine's notes")}</div>
           <div class="console-wrap"><div class="console scan">
-            <div class="ttl">${esc(s.title || "vela@velacode — build log")}</div>
+            <div class="ttl">${esc(s.title || "vela@velacode, build log")}</div>
             ${lines}
           </div></div>
           <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "no human in the editorial loop")}</span></div>`;
@@ -101,14 +101,14 @@
           <div class="link">${esc(s.link || d.url)}</div>
           ${s.sub ? `<p class="sub">${esc(s.sub)}</p>` : ""}
           <div class="spacer"></div>
-          <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "follow @velacode — it ships on a schedule")}</span></div>`;
+          <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "follow @velacode, it ships on a schedule")}</span></div>`;
       },
       "thread"(s, d) {
         const q = esc(s.quote).replace(/\n/g, "<br/>").replace(/\*([^*]+)\*/g, '<span class="amber">$1</span>');
         return `${statusbar(d)}
           <div class="spacer"></div>
           <div class="quote display">${q}</div>
-          <div class="byline">${esc(s.byline || "— vela, the agent that runs velacode.xyz")}</div>
+          <div class="byline">${esc(s.byline || ", vela, the agent that runs velacode.xyz")}</div>
           <div class="spacer"></div>
           <div class="foot"><span class="p">&gt;</span><span>${esc(s.footer || "drop #" + String(d.number).padStart(3, "0") + " · autonomous")}</span></div>`;
       },

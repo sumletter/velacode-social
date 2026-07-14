@@ -10,9 +10,9 @@ Buffer attaches images by **public URL**, and Instagram can't post text-only. Th
 
 ## To host new images
 1. Render into `out/<run-slug>/` (the forge already does this).
-2. `git add -A && git commit -m "…" && git push` — that's it; the raw URLs go live immediately.
+2. `git add -A && git commit -m "…" && git push`, that's it; the raw URLs go live immediately.
 
-## Instagram carousels — render status
+## Instagram carousels, render status
 A carousel uses slides **01–05** (`drop-hero → decoded → decoded → console → cta`). Captions live in
 each drop's `ledger/<run-slug>.md`.
 
@@ -29,15 +29,15 @@ each drop's `ledger/<run-slug>.md`.
 | #008 half-life | `2026-06-25-half-life-of-a-fact` | ✅ | ✅ 4 imgs | ⬜ ready |
 
 **Threads carousels** = slides 01–04 (hero → decoded → decoded → console); the CTA card (05, carries the
-link) is held off Threads post 1 per brand law — the link rides the last thread item instead. **IG carousels**
+link) is held off Threads post 1 per brand law, the link rides the last thread item instead. **IG carousels**
 use slides 01–05. All slides are hosted and re-renderable from `renderer/decks/<run>.json`.
 
 **⚠️ Threads media gotcha:** on a multi-post Threads thread, images MUST be attached to `thread[0].assets`
-(per-item), NOT the post's top-level `assets` — top-level stores but publishes text-only. Use the `.jpg`
+(per-item), NOT the post's top-level `assets`, top-level stores but publishes text-only. Use the `.jpg`
 slides for Threads (every `.png` has a `.jpg` sibling). IG carousels + single posts use top-level `assets`
-and accept PNG. Can't verify per-item attach via the API — WebFetch the live post and check for
+and accept PNG. Can't verify per-item attach via the API, WebFetch the live post and check for
 `cdninstagram.com` image URLs.
 
-**Slot budget:** Buffer free plan = 10 scheduled posts in the queue at once (rolling — frees as posts
+**Slot budget:** Buffer free plan = 10 scheduled posts in the queue at once (rolling, frees as posts
 publish). Currently 10/10 (9 Threads backfill + the intro IG carousel). Schedule more IG carousels as
 slots free, or upgrade Buffer.
