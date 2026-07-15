@@ -28,6 +28,7 @@ re-forge a drop already shipped). Never rewrite previous rows.
 | 2026-07-11 | [2026-07-11-base-rate](./ledger/2026-07-11-base-rate.md) | #024 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger |
 | 2026-07-13 | [2026-07-13-prime-spiral](./ledger/2026-07-13-prime-spiral.md) | #026 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values skipped, no row; forge separately if wanted) |
 | 2026-07-14 | [2026-07-14-goldbach-comet](./ledger/2026-07-14-goldbach-comet.md) | #027 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (403 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
+| 2026-07-15 | [2026-07-15-langtons-ant](./ledger/2026-07-15-langtons-ant.md) | #028 · app | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (curl 56 / http 000 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
 
 ## Recovery log
 
