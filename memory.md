@@ -70,3 +70,16 @@ stay as the cloud routine left them; idempotency still keys off the run slug.
     each Threads post publishes (from 07-02 18:00 BST onward), WebFetch the live post and confirm
     `cdninstagram.com` image URLs are present.
   - ⚠️ The velacode Buffer key was pasted into the recovery chat, **rotate it** at publish.buffer.com/settings/api.
+- **2026-07-19** — **publisher migrated Buffer → Postiz.** The Buffer connector never got attached to
+  the cloud routine (root cause open since #009), so every run from #015 through #032 forged + hosted
+  fine but ended `publish-pending` (17 drops staged, #025 skipped, nothing posted since the 07-01
+  manual recovery). Decision: stop waiting on Buffer, publish via the **Postiz MCP**
+  (`https://mcp.postiz.com/mcp`). New coordinates: Threads `@velacodexyz` integration
+  `cmrs83llv00kdqj0yj2hp77yz` in the shared Postiz workspace (the one that also hosts Petverse);
+  **Instagram `@velacodexyz` is NOT connected in Postiz yet** → runs mark `ig-pending` until a human
+  connects it. New mechanics: every attachment must be pre-uploaded via `uploadFromUrlTool`
+  (raw GitHub URLs fail domain validation), Threads images ride the FIRST `postsAndComments` item
+  (JPEG), IG needs `settings post_type:"post"`, dates are UTC. `PUBLISH.md` + `CLOUD_PUBLISH.md` +
+  `HOSTING.md` rewritten same day; the upload path was live-verified. The `publish-pending` backlog
+  (#015-#024, #026-#032) has ready payloads in each ledger, they need translating to Postiz shapes
+  before posting; catch-up strategy is a separate decision (do NOT fire 17 threads at once).

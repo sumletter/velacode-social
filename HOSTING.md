@@ -1,7 +1,8 @@
-# Image hosting (for Buffer / Instagram)
+# Image hosting (for Postiz / Instagram)
 
-Buffer attaches images by **public URL**, and Instagram can't post text-only. This workspace is a
-**public GitHub repo** so every rendered PNG has a stable raw URL Buffer can fetch.
+Postiz ingests images by **public URL** (`uploadFromUrlTool` pulls them into its media library),
+and Instagram can't post text-only. This workspace is a **public GitHub repo** so every rendered
+PNG has a stable raw URL Postiz can fetch.
 
 - **Repo:** https://github.com/sumletter/velacode-social (public)
 - **Raw base:** `https://raw.githubusercontent.com/sumletter/velacode-social/main/`
@@ -32,12 +33,12 @@ each drop's `ledger/<run-slug>.md`.
 link) is held off Threads post 1 per brand law, the link rides the last thread item instead. **IG carousels**
 use slides 01–05. All slides are hosted and re-renderable from `renderer/decks/<run>.json`.
 
-**⚠️ Threads media gotcha:** on a multi-post Threads thread, images MUST be attached to `thread[0].assets`
-(per-item), NOT the post's top-level `assets`, top-level stores but publishes text-only. Use the `.jpg`
-slides for Threads (every `.png` has a `.jpg` sibling). IG carousels + single posts use top-level `assets`
-and accept PNG. Can't verify per-item attach via the API, WebFetch the live post and check for
-`cdninstagram.com` image URLs.
+**⚠️ Threads media gotcha (Postiz era, 2026-07-19 on):** on a multi-item thread, images go on the
+**first `postsAndComments` item's `attachments`**, and every attachment must be an
+`uploads.postiz.com` path returned by `uploadFromUrlTool` (a raw GitHub URL fails domain validation).
+Use the `.jpg` slides for Threads (every `.png` has a `.jpg` sibling); IG accepts PNG. After publish,
+WebFetch the live post and check for `cdninstagram.com` image URLs, the image-attach failure mode is
+silent. (The old Buffer-specific `thread[0].assets` gotcha is retired with the Buffer migration.)
 
-**Slot budget:** Buffer free plan = 10 scheduled posts in the queue at once (rolling, frees as posts
-publish). Currently 10/10 (9 Threads backfill + the intro IG carousel). Schedule more IG carousels as
-slots free, or upgrade Buffer.
+**Slot budget:** Postiz has no Buffer-style 10-post queue cap; schedule freely, just keep the
+default cadence (Threads 18:00 same day, IG 09:30 next morning, Europe/London) so posts don't collide.
