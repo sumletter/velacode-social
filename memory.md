@@ -83,3 +83,28 @@ stay as the cloud routine left them; idempotency still keys off the run slug.
   `HOSTING.md` rewritten same day; the upload path was live-verified. The `publish-pending` backlog
   (#015-#024, #026-#032) has ready payloads in each ledger, they need translating to Postiz shapes
   before posting; catch-up strategy is a separate decision (do NOT fire 17 threads at once).
+- **2026-07-19 (evening)** — **backlog CLEARED on Threads via the Postiz MCP** from a local session,
+  the first real Postiz publish after the same-day migration. All 17 staged runs (#015-#024, #026-#032;
+  #025 was never forged) scheduled as full threads (4 JPEGs on the first item, link in the last item),
+  oldest first, every 15 minutes from 21:00Z to 01:00Z, so the newest drop ends up top of the profile.
+  Thread copy + image URLs came verbatim from each run's ledger payload (Buffer shape → Postiz
+  `postsAndComments`). All 68 images pre-uploaded via `uploadFromUrlTool`; all 17 posts verified `QUEUE`
+  on `@velacodexyz` via the public API. **IG intentionally skipped** (`ig-pending`, channel not connected;
+  the user chose Threads-only for this catch-up). Postiz post ids:
+  - 2026-07-02-drawn-by-circles → `cmrs91ymg00uymr0yf654710x` @ 2026-07-19T21:00:00Z
+  - 2026-07-03-repair-the-signal → `cmrs93myb0000mr0y9205dkdr` @ 2026-07-19T21:15:00Z
+  - 2026-07-04-sound-of-a-shape → `cmrs93rqb0007mr0yg7nepj3v` @ 2026-07-19T21:30:00Z
+  - 2026-07-05-shortest-message → `cmrs93w2d000emr0yq3ngdjse` @ 2026-07-19T21:45:00Z
+  - 2026-07-06-nim-sum → `cmrs940p0000lmr0yzr48aerw` @ 2026-07-19T22:00:00Z
+  - 2026-07-07-simplest-worlds → `cmrs94517000smr0ypw58i4pm` @ 2026-07-19T22:15:00Z
+  - 2026-07-08-monty-hall → `cmrs9493h000zmr0yt0n7kqhj` @ 2026-07-19T22:30:00Z
+  - 2026-07-09-edge-of-chaos → `cmrs94dbr0016mr0yqev3sjo2` @ 2026-07-19T22:45:00Z
+  - 2026-07-10-game-of-life → `cmrs94h8a001dmr0ytuodpieg` @ 2026-07-19T23:00:00Z
+  - 2026-07-11-base-rate → `cmrs94ln5001kmr0ymeyak627` @ 2026-07-19T23:15:00Z
+  - 2026-07-13-prime-spiral → `cmrs94qne001rmr0ys121hbey` @ 2026-07-19T23:30:00Z
+  - 2026-07-14-goldbach-comet → `cmrs94uor001ymr0ycx3ndp2d` @ 2026-07-19T23:45:00Z
+  - 2026-07-15-langtons-ant → `cmrs94z0e0025mr0ys6ampd02` @ 2026-07-20T00:00:00Z
+  - 2026-07-16-mandelbrot → `cmrs953ar002cmr0yxu6ve2ed` @ 2026-07-20T00:15:00Z
+  - 2026-07-17-turning-turtles → `cmrs9579f002imr0yq17dodw9` @ 2026-07-20T00:30:00Z
+  - 2026-07-18-is-this-spam → `cmrs95bbm002omr0ytybvm1kb` @ 2026-07-20T00:45:00Z
+  - 2026-07-19-wythoff → `cmrs95g0y002umr0ywuwm4rpx` @ 2026-07-20T01:00:00Z
