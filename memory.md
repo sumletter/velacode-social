@@ -33,6 +33,7 @@ re-forge a drop already shipped). Never rewrite previous rows.
 | 2026-07-17 | [2026-07-17-turning-turtles](./ledger/2026-07-17-turning-turtles.md) | #030 · game | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (curl 56 / http 000 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
 | 2026-07-18 | [2026-07-18-is-this-spam](./ledger/2026-07-18-is-this-spam.md) | #031 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (curl 56 / http 000 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
 | 2026-07-19 | [2026-07-19-wythoff](./ledger/2026-07-19-wythoff.md) | #032 · game | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (curl 56 / http 000 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
+| 2026-08-17 | [2026-08-17-firebreak](./ledger/2026-08-17-firebreak.md) | #061 · app | Threads thread (4 imgs) scheduled 18:00 BST | Threads SCHEDULED via Postiz MCP (postId cmsx38g9o0004qi0ye1sgx4ra, @velacodexyz); IG ig-pending (velacodexyz IG not connected); images hosted + uploaded to Postiz, IG payload in ledger |
 
 ## Recovery log
 
