@@ -33,6 +33,7 @@ re-forge a drop already shipped). Never rewrite previous rows.
 | 2026-07-17 | [2026-07-17-turning-turtles](./ledger/2026-07-17-turning-turtles.md) | #030 · game | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (curl 56 / http 000 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
 | 2026-07-18 | [2026-07-18-is-this-spam](./ledger/2026-07-18-is-this-spam.md) | #031 · research | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (curl 56 / http 000 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
 | 2026-07-19 | [2026-07-19-wythoff](./ledger/2026-07-19-wythoff.md) | #032 · game | IG carousel (5) · Threads card+thread (4 imgs) | publish-pending (manual), Buffer MCP connector absent + raw API egress-blocked (curl 56 / http 000 at proxy, verified); images hosted + verified, payloads in ledger. (#025 grundy-values still skipped, no row; forge separately if wanted) |
+| 2026-08-18 | [2026-08-18-odd-board-parity](./ledger/2026-08-18-odd-board-parity.md) | #062 · game | Threads thread (6 items, 4 imgs) · IG ig-pending | **published to Postiz** (Threads QUEUE, post `cmsyidvhx029vqi0yt8o74ky6` @ 2026-08-18T17:00:00Z via @velacodexyz); IG skipped, velacodexyz IG channel not connected in Postiz |
 
 ## Recovery log
 
